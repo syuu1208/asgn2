@@ -1,4 +1,4 @@
-Rank,Country,Overall Life,Male Life,Female Life,Continent
+Rank,Country,Overall,Male,Female,Continent
 1,Monaco,89.5,85.6,93.5,Europe
 2,Japan,85,81.7,88.5,Asia
 3,Singapore,85,82.3,87.8,Asia
@@ -176,7 +176,7 @@ Rank,Country,Overall Life,Male Life,Female Life,Continent
 175,Yemen,65.5,63.4,67.8,Asia
 176,Togo,65,62.3,69.7,Africa
 177,Eritrea,64.9,62.4,67.5,Africa
-178,São Tomé and Príncipe,64.9,63.6,66.3,Africa
+178,SÃ£o TomÃ© and PrÃ­ncipe,64.9,63.6,66.3,Africa
 179,The Gambia,64.9,62.5,67.3,Africa
 180,Cambodia,64.5,62,67.1,Asia
 181,Laos,64.3,62.2,66.4,Asia
@@ -200,7 +200,7 @@ Rank,Country,Overall Life,Male Life,Female Life,Continent
 199,Rwanda,60.1,58.5,61.7,Africa
 200,Republic of the Congo,59.3,58.1,60.6,Africa
 201,Liberia,59,57.3,60.8,Africa
-202,Côte d'Ivoire,58.7,57.5,59.9,Africa
+202,CÃ´te d'Ivoire,58.7,57.5,59.9,Africa
 203,Cameroon,58.5,57.1,59.9,Africa
 204,Sierra Leone,58.2,55.6,60.9,Africa
 205,Zimbabwe,58,57.3,58.7,Africa
