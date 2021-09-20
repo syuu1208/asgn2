@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Life Expectancy",
+    "width": 800,
+    "height": 600,
+    "data": {
+    "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/japan.topojson",
+    "format": {"type": "topojson", "feature": "japan"}
+    },
+    "transform": [
+    {
+    "lookup": "properties.nam",
+    "from": {
+    "data": {
+    "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/life_expectancy_prefecture.csv"
+    },
+    "key": "Country",
+    "fields": ["Overall"]
+            }
+        }   
+    ],
+    "projection": {"type": "equirectangular"},
+    "mark": {"type": "geoshape"},
+    "encoding": {
+    "color": {
+    "field": "Overall",
+    "type": "quantitative",
+    "scale": {"type": "linear"}
+    },
+    "tooltip": [
+    {"field": "properties.nam", "type": "nominal", "title": "Country"},
+    {"field": "Overall", "type": "quantitative"}
+    ]
+    }
+   }
