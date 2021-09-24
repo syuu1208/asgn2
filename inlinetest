@@ -1,0 +1,157 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 400,
+    "title": "Life Expectancy",
+    "data": {
+    "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/population_prefecture",
+    "format": {"type": "csv"}
+    },
+    "params": [
+    {
+    "name": "Region_Selection",
+    "bind": {
+    "input": "select",
+    "options": [
+     null,
+    "Chubu",
+    "Kansai",
+    "Kyushu",
+    "Chugoku",
+    "Kanto",
+    "Shikoku",
+    "Hokkaido",
+    "Tohoku"
+    ],
+    "labels":[
+    "Show All",
+    "Chubu",
+    "Kansai",
+    "Kyushu",
+    "Chugoku",
+    "Kanto",
+    "Shikoku",
+    "Hokkaido",
+    "Tohoku"
+    ],
+    "name": "Region Selection"
+    }
+    }
+    ],
+   "transform": [
+   {"filter": "Region_Selection == null || datum.Region == Region_Selection"}
+   ],
+       "selection": {
+       "continent_highlight": {
+       "type": "multi",
+       "fields": ["Region"],
+       "bind": "legend"
+       }
+       },
+   "encoding": {
+    "x": {
+    "field": "Country",
+    "type": "nominal",
+    "title": "Region"
+    },
+    "y": {
+    "field": "Population",
+    "type": "quantitative"
+    },
+               "color":{
+                   "field": "Region",
+                   "type": "nominal",
+                   "domain": [
+                       "Chubu",
+                       "Kansai",
+                       "Kyushu",
+                       "Chugoku",
+                       "Kanto",
+                       "Shikoku",
+                       "Hokkaido",
+                       "Tohoku"
+                       ],
+                       "range": [
+                       "#e41a1c",
+                       "#984ea3",
+                       "#ff7f00",
+                       "#a6cee3",
+                       "#377eb8",
+                       "#a65628",
+                       "#a65629",
+                       "#a66630"
+                       ]                
+               }
+    },
+   "layer":[
+       {
+           "selection":{
+               "continent_highlight":{
+                   "type": "multi",
+                   "fields": ["Region"],
+                   "bind": "legend"
+               }
+           },
+           "mark": "bar",
+           "encoding":{
+               "color":{
+                   "field": "Region",
+                   "type": "nominal",
+                   "domain": [
+                       "Chubu",
+                       "Kansai",
+                       "Kyushu",
+                       "Chugoku",
+                       "Kanto",
+                       "Shikoku",
+                       "Hokkaido",
+                       "Tohoku"
+                       ],
+                       "range": [
+                       "#e41a1c",
+                       "#984ea3",
+                       "#ff7f00",
+                       "#a6cee3",
+                       "#377eb8",
+                       "#a65628",
+                       "#a65629",
+                       "#a66630"
+                       ]                
+               }
+           },
+           "opacity":{
+               "condition": {"selection": "continent_highlight", "value": 0.6},
+                "value": 0.2
+           },
+            "tooltip": [
+            {"field": "Region", "type": "nominal"},
+            {"field": "Population", "type": "quantitative", "format": ","}
+           ]
+   },
+   {
+       "mark": {
+           "type": "text",
+           "align": "right",
+           "baseline": "middle",
+           "dx": -12,
+           "fontSize": 11.5,
+           "fontStyle": "italic"
+       },
+       "encoding": {
+         "text": {"field": "Country", "type": "nominal"},
+         "color": {"value": "black"},
+         "opacity": {
+             "condition":{
+                 "test": "datum['Country'] == 'Tokyo'",
+                 "value": 1
+             },
+             "value": 0
+       },
+       "tooltip": [
+        {"field": "Region", "type": "nominal"},
+        {"field": "Population", "type": "quantitative", "format": ","}
+       ]   
+   }
+   }
+   ]
+   }
