@@ -1,0 +1,10 @@
+{"question": "Nagano", "type": "Female", "value": 87.68},
+{"question": "Nagano", "type": "Male", "value": 81.75},
+{"question": "Shiga", "type": "Female", "value": 87.57},
+{"question": "Shiga", "type": "Male", "value": 81.78},
+{"question": "Fukui", "type": "Female", "value": 87.54},
+{"question": "Fukui", "type": "Male", "value": 81.27},
+{"question": "Kyoto", "type": "Female", "value": 87.35},
+{"question": "Kyoto", "type": "Male", "value": 81.40},
+{"question": "Kumamoto", "type": "Female", "value": 87.49},
+{"question": "Kumamoto", "type": "Male", "value": 81.22}
