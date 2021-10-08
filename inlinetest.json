@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
+    "width": 600,
     "height": 400,
     "title": "Life Expectancy",
     "data": {
@@ -41,13 +41,6 @@
    "transform": [
    {"filter": "Region_Selection == null || datum.Region == Region_Selection"}
    ],
-       "selection": {
-       "continent_highlight": {
-       "type": "multi",
-       "fields": ["Region"],
-       "bind": "legend"
-       }
-       },
    "encoding": {
     "x": {
     "field": "Country",
@@ -57,31 +50,7 @@
     "y": {
     "field": "Population",
     "type": "quantitative"
-    },
-               "color":{
-                   "field": "Region",
-                   "type": "nominal",
-                   "domain": [
-                       "Chubu",
-                       "Kansai",
-                       "Kyushu",
-                       "Chugoku",
-                       "Kanto",
-                       "Shikoku",
-                       "Hokkaido",
-                       "Tohoku"
-                       ],
-                       "range": [
-                       "#e41a1c",
-                       "#984ea3",
-                       "#ff7f00",
-                       "#a6cee3",
-                       "#377eb8",
-                       "#a65628",
-                       "#a65629",
-                       "#a66630"
-                       ]                
-               }
+    }
     },
    "layer":[
        {
@@ -97,6 +66,7 @@
                "color":{
                    "field": "Region",
                    "type": "nominal",
+                   "scale": {
                    "domain": [
                        "Chubu",
                        "Kansai",
@@ -114,19 +84,20 @@
                        "#a6cee3",
                        "#377eb8",
                        "#a65628",
-                       "#a65629",
-                       "#a66630"
-                       ]                
-               }
-           },
+                       "#2800C6",
+                       "#33FF9E"
+                       ] 
+                    }               
+               },
            "opacity":{
-               "condition": {"selection": "continent_highlight", "value": 0.6},
-                "value": 0.2
+               "condition": {"selection": "continent_highlight", "value": 0.8},
+                "value": 0.4
            },
             "tooltip": [
             {"field": "Region", "type": "nominal"},
             {"field": "Population", "type": "quantitative", "format": ","}
            ]
+        }
    },
    {
        "mark": {
