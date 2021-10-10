@@ -1,0 +1,141 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": "Life Expectancy",
+    "data": {
+    "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/population_prefecture",
+    "format": {"type": "csv"}
+    },
+    "params": [
+    {
+    "name": "Region_Selection",
+    "bind": {
+    "input": "select",
+    "options": [
+     null,
+    "Chubu",
+    "Kansai",
+    "Kyushu",
+    "Chugoku",
+    "Kanto",
+    "Shikoku",
+    "Hokkaido",
+    "Tohoku"
+    ],
+    "labels":[
+    "Show All",
+    "Chubu",
+    "Kansai",
+    "Kyushu",
+    "Chugoku",
+    "Kanto",
+    "Shikoku",
+    "Hokkaido",
+    "Tohoku"
+    ],
+    "name": "Region Selection "
+    }
+    }
+    ],
+   "transform": [
+   {"filter": "Region_Selection == null || datum.Region == Region_Selection"}
+   ],
+   "encoding": {
+    "x": {
+    "field": "Country",
+    "type": "nominal",
+    "title": "Prefecture"
+    },
+    "y": {
+    "field": "Population",
+    "type": "quantitative"
+    }
+    },
+   "layer":[
+       {
+           "selection":{
+               "continent_highlight":{
+                   "type": "multi",
+                   "fields": ["Region"],
+                   "bind": "legend"
+               }
+           },
+           "mark": "circle",
+           "encoding":{
+               "size":{
+                    "field": "Area",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [1000, 5000, 10000, 50000, 100000],
+                        "range": [10, 50, 100, 150, 250]
+                        },
+                        "legend": {"format": ".1s"}
+
+               },
+               "color":{
+                   "field": "Region",
+                   "type": "nominal",
+                   "scale": {
+                   "domain": [
+                       "Chubu",
+                       "Kansai",
+                       "Kyushu",
+                       "Chugoku",
+                       "Kanto",
+                       "Shikoku",
+                       "Hokkaido",
+                       "Tohoku"
+                       ],
+                       "range": [
+                       "#e41a1c",
+                       "#984ea3",
+                       "#ff7f00",
+                       "#a6cee3",
+                       "#377eb8",
+                       "#a65628",
+                       "#2800C6",
+                       "#33FF9E"
+                       ] 
+                    }               
+               },
+           "opacity":{
+               "condition": {"selection": "continent_highlight", "value": 0.8},
+                "value": 0.4
+           },
+            "tooltip": [
+            {"field": "Region", "type": "nominal"},
+            {"field": "Population", "type": "quantitative", "format": ","},
+            {"field": "Country", "type": "nominal"}
+           ]
+        }
+   },
+   {
+       "mark": {
+           "type": "text",
+           "align": "right",
+           "baseline": "middle",
+           "dx": -12,
+           "fontSize": 11.5,
+           "fontStyle": "italic"
+       },
+       "encoding": {
+         "text": {"field": "Country", "type": "nominal"},
+         "color": {"value": "black"},
+         "opacity": {
+             "condition":{
+                 "test": "datum['Country'] == 'Tokyo'",
+                 "value": 1
+             },
+             "value": 0
+       },
+       "tooltip": [
+        {"field": "Region", "type": "nominal"},
+        {"field": "Population", "type": "quantitative", "format": ","},
+        {"field": "Country", "type": "nominal"}
+       ]   
+   }
+   }
+   ]
+   }
