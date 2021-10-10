@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple radial chart with embedded data.",
+    "width": 500,
+    "height": 400,
+    "data": {
+      "values": [
+        {"Factors": "Gender", "value": 4, "percentage": "10%"},
+        {"Factors": "Genetics", "value": 8, "percentage": "20%"},
+        {"Factors": "Education", "value": 3, "percentage": "7.5%"},
+        {"Factors": "Lifestyle", "value": 14, "percentage": "35%"},
+        {"Factors": "Medical Technology", "value": 5, "percentage": "12.5%"},
+        {"Factors": "Economic Status", "value": 6, "percentage": "15%"}
+      ]
+    },
+    "layer": [{
+      "mark": {"type": "arc", "innerRadius": 20, "stroke":"null"}
+    },{
+      "mark": {"type": "text", "radiusOffset": 10},
+      "encoding": {
+        "text": {"field": "percentage", "type": "nominal"}
+      }
+    }],
+    "encoding": {
+      "theta": {"field": "value", "type": "quantitative", "stack": true},
+      "radius": {"field": "value", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "color": {"field": "Factors", "type": "nominal", "legend": {"orient": "left"}
+    }
+  }
+}
