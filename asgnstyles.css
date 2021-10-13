@@ -1,14 +1,23 @@
-    
   body{
     background-color: rgb(238, 190, 190);
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Times New Roman", serif;
   }
   h1{
     font-weight: 900;
   }
+  .highlight{
+    font-weight: 700;
+    color: rgb(119, 96, 202);
+}
+.highlight2{
+  font-weight: 700;
+  color: rgb(221, 112, 97);
+}
+
   h4{
     text-align: center;
   }
+
    .page{
      width: 1010px;    
      background-color: white;   
@@ -17,6 +26,11 @@
      padding-top: 35px;
   }
   .vis-container{
+    width: 100%;
+  }
+
+  .vis-container-center{
+    margin: 0;
     width: 100%;
   }
   .description h2, h1{
