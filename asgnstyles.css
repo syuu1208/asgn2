@@ -1,6 +1,6 @@
   body{
     background-color: rgb(238, 190, 190);
-    font-family: "Times New Roman", serif;
+    font-family: "Times New Roman", Times, serif;
   }
   h1{
     font-size: 40px;
@@ -8,7 +8,7 @@
   }
   h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 650;
   }
   .highlight{
     font-weight: 650;
@@ -20,8 +20,8 @@
 }
 
   h4{
-    font-size: 20;
-    font-weight: 600;
+    font-size: 30;
+    font-weight: 650;
     text-align: center;
   }
 
