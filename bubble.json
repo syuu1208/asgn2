@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width": 850,
     "height": 400,
-    "title": "Life Expectancy",
     "data": {
     "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/population_prefecture",
     "format": {"type": "csv"}
@@ -39,7 +38,8 @@
     }
     ],
    "transform": [
-   {"filter": "Region_Selection == null || datum.Region == Region_Selection"}
+   {"filter": "Region_Selection == null || datum.Region == Region_Selection"},
+   {"calculate": "datum.Population/datum.Area", "as": "Population Density"}
    ],
    "encoding": {
     "x": {
@@ -64,12 +64,12 @@
            "mark": "circle",
            "encoding":{
                "size":{
-                    "field": "Area",
+                    "field": "Population Density",
                     "type": "quantitative",
                     "scale": {
                         "type": "threshold",
-                        "domain": [1000, 5000, 10000, 50000, 100000],
-                        "range": [10, 50, 100, 150, 250]
+                        "domain": [80, 150, 800, 1000, 5000],
+                        "range": [10, 50, 100, 150, 200,350]
                         },
                         "legend": {"format": ".1s"}
 
@@ -107,7 +107,8 @@
             "tooltip": [
             {"field": "Region", "type": "nominal"},
             {"field": "Population", "type": "quantitative", "format": ","},
-            {"field": "Country", "type": "nominal"}
+            {"field": "Country", "type": "nominal", "title": "Prefecture"},
+            {"field": "Population Density", "type": "quantitative"}
            ]
         }
    },
@@ -125,7 +126,7 @@
          "color": {"value": "black"},
          "opacity": {
              "condition":{
-                 "test": "datum['Country'] == 'Tokyo'",
+                 "test": "datum['Country'] == 'Tokyo'|| datum['Country'] == 'Kanagawa' || datum['Country'] == 'Osaka' || datum['Country'] == 'Hokkaido'",
                  "value": 1
              },
              "value": 0
