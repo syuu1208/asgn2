@@ -1,0 +1,9 @@
+Region,Intake
+Hokkaido,10.2
+Tohoku,11.1
+Kanto,10.9
+Kyushu,9.8
+Shikoku,9.7
+Chugoku,10.0
+Kansai,9.8
+Chubu,10.5
