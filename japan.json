@@ -1,12 +1,25 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Life Expectancy",
-    "width": 500,
-    "height": 600,
+    "width": 570,
+    "height": 470,
     "data": {
     "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/japan.topojson",
     "format": {"type": "topojson", "feature": "japan"}
     },
+    "params":[
+        {
+            "name": "above",
+            "value": 82,
+            "bind": {
+            "input": "range",
+            "min": 82,
+            "max": 85,
+            "step": 0.1,
+            "name": "Minimum Life Expectancy: "
+            }
+        }
+           
+    ],
     "transform": [
     {
     "lookup": "properties.nam",
@@ -17,7 +30,8 @@
     "key": "Country",
     "fields": ["Overall"]
             }
-        }   
+        },
+        {"filter": "datum.Overall > above"}  
     ],
     "projection": {"type": "equirectangular"},
     "mark": {"type": "geoshape"},
