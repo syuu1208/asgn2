@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 850,
+    "width": 810,
     "height": 400,
     "data": {
     "url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/population_prefecture",
@@ -79,24 +79,24 @@
                    "type": "nominal",
                    "scale": {
                    "domain": [
+                       "Hokkaido",
+                       "Tohoku",
+                       "Kanto",
                        "Chubu",
                        "Kansai",
-                       "Kyushu",
                        "Chugoku",
-                       "Kanto",
                        "Shikoku",
-                       "Hokkaido",
-                       "Tohoku"
+                       "Kyushu"
                        ],
-                       "range": [
-                       "#e41a1c",
-                       "#984ea3",
-                       "#ff7f00",
-                       "#a6cee3",
-                       "#377eb8",
-                       "#a65628",
-                       "#2800C6",
-                       "#33FF9E"
+                       "range": [ 
+                        "#7C2DFF",
+                        "#0238FF",
+                        "#3CFFFF",
+                        "#4F9A39",
+                        "#C3F1B6",
+                        "#FFF700",
+                        "#FFA121",
+                        "#FA2929"
                        ] 
                     }               
                },
@@ -105,9 +105,9 @@
                 "value": 0.4
            },
             "tooltip": [
+            {"field": "Country", "type": "nominal", "title": "Prefecture"},
             {"field": "Region", "type": "nominal"},
             {"field": "Population", "type": "quantitative", "format": ","},
-            {"field": "Country", "type": "nominal", "title": "Prefecture"},
             {"field": "Population Density", "type": "quantitative"}
            ]
         }
@@ -126,7 +126,7 @@
          "color": {"value": "black"},
          "opacity": {
              "condition":{
-                 "test": "datum['Country'] == 'Tokyo'|| datum['Country'] == 'Kanagawa' || datum['Country'] == 'Osaka' || datum['Country'] == 'Hokkaido'",
+                 "test": "datum['Country'] == 'Tokyo'|| datum['Country'] == 'Aomori' || datum['Country'] == 'Hokkaido' ||  datum['Country'] == 'Kanagawa' || datum['Country'] == 'Shiga'",
                  "value": 1
              },
              "value": 0
@@ -138,5 +138,8 @@
        ]   
    }
    }
-   ]
+   ],
+   "config":{
+    "background": null
+  }
    }
