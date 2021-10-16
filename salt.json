@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 530,
+  "height": 450,
+  "data": {"url": "https://raw.githubusercontent.com/syuu1208/asgn2/main/salt.txt", "format": {"type": "csv"}},
+
+  "layer": [
+    {
+      "mark": {
+        "type":"bar",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Intake",
+          "type": "quantitative",
+          "scale": {"domain": [9.5,11.5], "zero": false},
+          "title": "Average Salt Intake (g/day)",
+          "axis": {"grid": false, "ticks": false}
+
+        },
+        "y": {
+          "field": "Region",
+          "type": "nominal"
+        },
+        "color": {"value": "#C2F9FF"},
+        "tooltip": [
+          {"field": "Intake", "type": "quantitative", "title": "Average Salt Intake (g/day)"},
+          {"field": "Region", "type": "nominal"}
+          ]
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "x": {
+          "aggregate": "mean",
+          "field": "Intake",
+          "type": "quantitative"
+        },
+        "color": {"value": "red"},
+        "size": {"value": 3},
+        "tooltip": [
+          {"aggregate": "mean", "field": "Intake", "type": "quantitative", "title": "Average Salt Intake in Japan (g/day)"}
+          ]
+      }
+    }
+  ],
+  "config":{
+    "background": null,
+    "style":{
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  }
+}
